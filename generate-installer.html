@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>mirza_vali — دستور نصب</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --line: #2d3a4d;
+      --text: #e7ecf3;
+      --muted: #8b9bb4;
+      --accent: #3b82f6;
+      --ok: #22c55e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 { font-size: 1.5rem; margin: 0 0 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .pill {
+      font-size: 0.75rem;
+      background: #1e3a5f;
+      color: #93c5fd;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .sub { color: var(--muted); margin-bottom: 24px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 16px;
+      margin-bottom: 16px;
+    }
+    h2 { font-size: 1.05rem; margin: 0 0 12px; color: #93c5fd; }
+    label { display: block; font-size: 0.85rem; color: var(--muted); margin: 10px 0 4px; }
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #0f1419;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    button {
+      margin-top: 14px;
+      width: 100%;
+      padding: 12px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.08); }
+    pre {
+      background: #0a0e14;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      direction: ltr;
+      text-align: left;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+    ul { margin: 8px 0; padding-right: 18px; color: var(--muted); }
+    li { margin: 4px 0; }
+    .ok { color: var(--ok); }
+    .copy {
+      margin-top: 8px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.85rem;
+      padding: 8px;
+    }
+    footer { margin-top: 28px; color: var(--muted); font-size: 0.85rem; text-align: center; }
+    code { direction: ltr; unicode-bidi: embed; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>mirza_vali <span class="pill">v1.8.61</span></h1>
+    <p class="sub">ربات فروش VPN — تلگرام + بله · مسیر نصب پیش‌فرض: <code>/home/mirza_vali</code></p>
+
+    <div class="card">
+      <h2>۱) نصب یک‌خطی روی سرور</h2>
+      <pre id="cmdInstall">bash &lt;(curl -fsSL https://raw.githubusercontent.com/silent4time/mirza_vali/main/install.sh)</pre>
+      <button class="copy" type="button" onclick="copyText('cmdInstall')">کپی دستور نصب</button>
+      <ul>
+        <li>از منو گزینه <b>1) Install</b> را بزنید</li>
+        <li>مسیر پیش‌فرض: <code>/home/mirza_vali</code></li>
+        <li>دامنه، توکن تلگرام، توکن بله و دیتابیس پرسیده می‌شود</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>۲) آپدیت</h2>
+      <pre id="cmdUpdate">cd /opt/mirza_vali-src &amp;&amp; bash manage.sh
+# گزینه 2) Update</pre>
+      <button class="copy" type="button" onclick="copyText('cmdUpdate')">کپی دستور آپدیت</button>
+    </div>
+
+    <div class="card">
+      <h2>۳) منوی مدیریت</h2>
+      <ul>
+        <li>1 — نصب</li>
+        <li>2 — آپدیت به آخرین نسخه از گیت‌هاب</li>
+        <li>3 — حذف کامل</li>
+        <li>4 — ریست وب‌هوک / تونل / دامنه</li>
+        <li>5 — تمدید SSL</li>
+        <li>6 — راهنما</li>
+        <li>7 — وضعیت</li>
+        <li>0 — خروج</li>
+      </ul>
+      <pre>cd /opt/mirza_vali-src &amp;&amp; bash manage.sh</pre>
+    </div>
+
+    <div class="card">
+      <h2>۴) امکانات ربات</h2>
+      <ul>
+        <li><span class="ok">✓</span> تلگرام + بله (دیتابیس مشترک)</li>
+        <li><span class="ok">✓</span> پرداخت بله‌پی</li>
+        <li><span class="ok">✓</span> کارت‌به‌کارت با رسید و تأیید ادمین</li>
+        <li><span class="ok">✓</span> کیف پول داخلی</li>
+        <li><span class="ok">✓</span> فروش خودکار و تحویل سرویس</li>
+        <li><span class="ok">✓</span> پنل‌های متعدد VPN</li>
+        <li><span class="ok">✓</span> Apache + SSL</li>
+        <li><span class="ok">✓</span> بک‌آپ و مدیریت ادمین</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>۵) پارامترهای اختیاری (تولید یادداشت نصب)</h2>
+      <div class="row">
+        <div>
+          <label>دامنه ربات</label>
+          <input id="domain" placeholder="example.com" />
+        </div>
+        <div>
+          <label>مسیر نصب</label>
+          <input id="installDir" value="/home/mirza_vali" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>یوزرنیم گیت‌هاب</label>
+          <input id="ghUser" value="silent4time" />
+        </div>
+        <div>
+          <label>نام ریپو</label>
+          <input id="ghRepo" value="mirza_vali" />
+        </div>
+      </div>
+      <button type="button" onclick="genNote()">تولید یادداشت</button>
+      <pre id="noteOut" style="margin-top:12px;min-height:60px"></pre>
+      <button class="copy" type="button" onclick="copyText('noteOut')">کپی یادداشت</button>
+    </div>
+
+    <div class="card">
+      <h2>۶) عیب‌یابی سریع</h2>
+      <pre>php -r 'require "/home/mirza_vali/config.php"; echo "DB_OK\n";'
+systemctl is-active apache2 mariadb
+cd /opt/mirza_vali-src &amp;&amp; bash manage.sh
+# گزینه 7) Status</pre>
+    </div>
+
+    <div class="card">
+      <h2>۷) حمایت مالی</h2>
+      <p style="color:var(--muted);margin:0 0 8px">USDT / TON روی شبکه <b>BEP20 (BSC)</b>:</p>
+      <pre id="wallet">0xa1a89602DDB47682091Af3Da1737672bd97f5669</pre>
+      <button class="copy" type="button" onclick="copyText('wallet')">کپی آدرس ولت</button>
+    </div>
+
+    <footer>
+      بر پایه ربات میرزا —
+      <a href="https://github.com/mahdiMGF2/mirzabot" style="color:#93c5fd">mahdiMGF2/mirzabot</a>
+      · ریپو:
+      <a href="https://github.com/silent4time/mirza_vali" style="color:#93c5fd">silent4time/mirza_vali</a>
+    </footer>
+  </div>
+  <script>
+    function g(id) { return (document.getElementById(id).value || '').trim(); }
+    function copyText(id) {
+      const el = document.getElementById(id);
+      const t = el.innerText || el.textContent || '';
+      navigator.clipboard.writeText(t).then(() => alert('کپی شد'));
+    }
+    function genNote() {
+      const user = g('ghUser') || 'silent4time';
+      const repo = g('ghRepo') || 'mirza_vali';
+      const dir = g('installDir') || '/home/mirza_vali';
+      const domain = g('domain') || '(your-domain)';
+      document.getElementById('noteOut').textContent = [
+        'mirza_vali v1.8.61',
+        'Path: ' + dir,
+        'Domain: ' + domain,
+        'Install:',
+        'bash <(curl -fsSL https://raw.githubusercontent.com/' + user + '/' + repo + '/main/install.sh)',
+        'Update:',
+        'cd /opt/mirza_vali-src && bash manage.sh   # option 2',
+        'Donate BEP20: 0xa1a89602DDB47682091Af3Da1737672bd97f5669'
+      ].join('\n');
+    }
+  </script>
+</body>
+</html>
