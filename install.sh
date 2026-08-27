@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # mirza_vali Pro — one-line / local installer
 # ------------------------------------------------------------
-# IMPORTANT: This is NOT the classic mirza_vali installer.
-# Classic path:  /home/mirza_vali
-# Pro path:      /home/mirza_vali_pro
+# NOT classic mirza_vali. Classic=/home/mirza_vali  Pro=/home/mirza_vali_pro
 #
-# Preferred (Private GitHub): put zip on the server, then:
-#   sudo bash install.sh /root/mirza_vali_pro-latest.zip
-#
-# If repo is public (or token is set):
+# Public repo (testing):
 #   curl -fsSL https://raw.githubusercontent.com/silent4time/mirza_vali_pro/main/install.sh | sudo bash
+#
+# Local zip (or after repo is Private again):
+#   sudo bash install.sh /root/mirza_vali_pro-latest.zip
 # ------------------------------------------------------------
 set -euo pipefail
 
@@ -39,6 +37,8 @@ pick_local_zip() {
     "$LOCAL_ZIP"
     "/root/mirza_vali_pro-latest.zip"
     "/home/mirza_vali_pro-latest.zip"
+    "/root/mirza_vali_pro_v4.0.2.zip"
+    "/home/mirza_vali_pro_v4.0.2.zip"
     "/root/mirza_vali_pro_v4.0.1.zip"
     "/home/mirza_vali_pro_v4.0.1.zip"
     "/root/mirza_vali_pro_v4.0.0.zip"
@@ -59,12 +59,12 @@ echo "    Target install path (default): /home/mirza_vali_pro"
 echo "    Classic mirza_vali at /home/mirza_vali will NOT be touched."
 echo ""
 
-if LOCAL_FOUND="$(pick_local_zip)"; then
+if [[ "${SKIP_LOCAL:-0}" != "1" ]] && LOCAL_FOUND="$(pick_local_zip)"; then
   echo "[*] Using local package: $LOCAL_FOUND"
   cp -f "$LOCAL_FOUND" "$ZIP_FILE"
 else
   echo "[*] No local zip found — trying GitHub (${REPO_OWNER}/${REPO_NAME})..."
-  echo "    (Private repos: upload zip to /root/mirza_vali_pro-latest.zip instead)"
+  echo "    Public repo download: mirza_vali_pro-latest.zip from GitHub main"
   OK=0
   if [[ -n "${GITHUB_TOKEN:-${GH_TOKEN:-}}" ]]; then
     TOK="${GITHUB_TOKEN:-$GH_TOKEN}"
@@ -83,9 +83,10 @@ else
   fi
   if [[ "$OK" -ne 1 ]]; then
     echo "[x] Could not download from GitHub."
-    echo "    For Private Pro repo:"
-    echo "      1) Upload Pro package as /root/mirza_vali_pro-latest.zip (or mirza_vali_pro_v4.0.1.zip)"
-    echo "      2) sudo bash install.sh /root/mirza_vali_pro-latest.zip"
+    echo "    Checklist:"
+    echo "      1) Repo silent4time/mirza_vali_pro is Public (or use GH_TOKEN)"
+    echo "      2) File mirza_vali_pro-latest.zip exists on branch main (repo root)"
+    echo "      3) Or upload zip to server: sudo bash install.sh /root/mirza_vali_pro-latest.zip"
     rm -rf "$WORK"
     exit 1
   fi
