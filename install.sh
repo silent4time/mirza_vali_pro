@@ -38,7 +38,9 @@ pick_local_zip() {
     "/root/mirza_vali_pro-latest.zip"
     "/home/mirza_vali_pro-latest.zip"
     "/root/mirza_vali_pro_v4.0.2.zip"
-    "/home/mirza_vali_pro_v4.0.2.zip"
+    "/home/mirza_vali_pro_v4.0.3.zip
+    "/root/mirza_vali_pro_v4.0.3.zip"
+    "/home/mirza_vali_pro_v4.0.2.zip""
     "/root/mirza_vali_pro_v4.0.1.zip"
     "/home/mirza_vali_pro_v4.0.1.zip"
     "/root/mirza_vali_pro_v4.0.0.zip"

@@ -14,7 +14,7 @@
 
 ## معرفی
 
-`mirza_vali` یک ربات کامل برای فروش سرویس VPN است که همزمان روی **تلگرام** و پیام‌رسان **بله** کار می‌کند. خرید، پرداخت، تحویل خودکار سرویس، کیف پول و پنل مدیریت ادمین در یک سیستم یکپارچه پیاده‌سازی شده است.
+`mirza_vali Pro` یک ربات کامل برای فروش سرویس VPN است که همزمان روی **تلگرام** و پیام‌رسان **بله** کار می‌کند. خرید، پرداخت، تحویل خودکار سرویس، کیف پول و پنل مدیریت ادمین در یک سیستم یکپارچه پیاده‌سازی شده است.
 
 این پروژه بر پایه ربات متن‌باز **میرزا** توسعه یافته و برای استفاده عملی در فروش اشتراک سفارشی شده است.
 
@@ -245,7 +245,7 @@ $LICENSE_API_URL = 'https://license.silentping.ir/api/verify.php';
 ## نصب
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/silent4time/mirza_vali/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/silent4time/mirza_vali_pro/main/install.sh)
 ```
 
 از منو گزینه **1) Install** را انتخاب کنید.
