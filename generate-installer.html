@@ -30,7 +30,7 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>mirza_vali Pro <span class="pill">v4.0.3</span></h1>
+    <h1>mirza_vali Pro <span class="pill">v4.0.4</span></h1>
     <p class="sub">ربات فروش VPN — تلگرام + بله · لایسنس اشتراکی · مسیر پیش‌فرض: <code>/home/mirza_vali_pro</code></p>
     <p class="warn">این صفحه مخصوص <strong>Pro</strong> است — با نسخه کلاسیک (<code>mirza_vali</code> در <code>/home/mirza_vali</code>) قاطی نشود.</p>
 
@@ -47,7 +47,7 @@
 
     <div class="card">
       <h2>۲) نصب از فایل زیپ محلی</h2>
-      <pre id="cmdLocal"># فایل mirza_vali_pro_v4.0.3.zip یا mirza_vali_pro-latest.zip را در /root بگذارید
+      <pre id="cmdLocal"># فایل mirza_vali_pro_v4.0.4.zip یا mirza_vali_pro-latest.zip را در /root بگذارید
 sudo bash install.sh /root/mirza_vali_pro-latest.zip</pre>
       <button class="copy" type="button" onclick="copyText('cmdLocal')">کپی</button>
     </div>
@@ -69,15 +69,15 @@ mirza_vali_pro</pre>
     </div>
 
     <div class="card">
-      <h2>۴) لایسنس (از v4.0.3)</h2>
+      <h2>۴) لایسنس (از v4.0.4)</h2>
       <ul>
-        <li>سرور لایسنس: <code>https://license.silentping.ir</code></li>
+        <li>سرور لایسنس: <code>https://license.example.com</code></li>
         <li>در نصب، License key پرسیده می‌شود</li>
         <li>در ربات ادمین: دستور <code>/license</code></li>
         <li>انقضا فقط فروش را متوقف می‌کند</li>
       </ul>
-      <pre>https://license.silentping.ir/admin/
-https://license.silentping.ir/api/verify.php</pre>
+      <pre>https://license.example.com/admin/
+https://license.example.com/api/verify.php</pre>
     </div>
 
     <div class="card">
@@ -120,7 +120,7 @@ curl -sS -o /dev/null -w "HTTPS=%{http_code}\n" https://YOUR_DOMAIN/
       const dir = document.getElementById('installDir').value || '/home/mirza_vali_pro';
       const domain = document.getElementById('domain').value || 'bot.example.com';
       const lines = [
-        'mirza_vali Pro v4.0.3',
+        'mirza_vali Pro v4.0.4',
         'Install path: ' + dir,
         'Domain: ' + domain,
         'NOT classic mirza_vali',
@@ -131,7 +131,7 @@ curl -sS -o /dev/null -w "HTTPS=%{http_code}\n" https://YOUR_DOMAIN/
         'sudo bash install.sh /root/mirza_vali_pro-latest.zip',
         '',
         'Menu: cd /opt/mirza_vali_pro-src && bash manage.sh',
-        'License API: https://license.silentping.ir/api/verify.php',
+        'License API: https://license.example.com/api/verify.php',
         'Admin bot command: /license',
       ];
       document.getElementById('noteOut').textContent = lines.join('\n');
