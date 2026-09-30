@@ -1,5 +1,11 @@
 # mirza_vali Pro — Changelog
 
+## v5.0.20 (2026-09-30)
+
+- لینک ساب واقعی (sub.irancdn.org/subscription) نه آدرس API store
+
+---
+
 ## v5.0.19 (2026-09-30)
 
 - لینک ساب کانکتیکس در پیام تحویل تست و خرید
