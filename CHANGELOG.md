@@ -1,5 +1,17 @@
 # mirza_vali Pro — Changelog
 
+## v5.0.22 (2026-09-30)
+
+- لینک ساب فقط از پاسخ API استخراج می‌شود (ساخت دستی حذف شد)
+
+---
+
+## v5.0.21 (2026-09-30)
+
+- ساخت لینک ساب از UUID کاربر: sub.irancdn.org/subscription/{id}#user
+
+---
+
 ## v5.0.20 (2026-09-30)
 
 - لینک ساب واقعی (sub.irancdn.org/subscription) نه آدرس API store
