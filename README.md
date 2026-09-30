@@ -2,12 +2,12 @@
 
 ربات فروش و مدیریت اشتراک VPN برای **تلگرام** و **بله**
 
-**نسخه:** 4.0.9
+**نسخه:** 5.0.0
 
 > **mirza_vali Pro** — مسیر نصب پیش‌فرض: `/home/mirza_vali_pro`
 
 
-> **mirza_vali Pro** از نسخه **4.0.4** — شامل Connectix، چندنصب موازی و امکانات سفارشی Bale/Eylan.
+> **mirza_vali Pro** از نسخه **5.0.0** — اصلاح API کانکتیکس (`externel/v1`)، تمدید/افزودن پلن، چندنصب موازی و امکانات Bale/Eylan.
 
 
 ---
@@ -203,13 +203,36 @@ $LICENSE_API_URL = 'https://license.example.com/api/verify.php';
 
 
 
-### پنل Connectix (از v3.0)
+### پنل Connectix (از v5.0.0)
+
+سایت فروشنده: `https://seller.connectix.vip`  
+صفحه توکن و Swagger: `https://seller.connectix.vip/profile/api-token`
 
 - نوع پنل: **Connectix** در منوی افزودن پنل
-- آدرس API: `https://seller-api.connectix.vip/external/v1`
-- پسورد پنل = **API Token** (Account Settings → API)
-- پس از ذخیره، پلن‌های فعال به‌صورت خودکار به‌عنوان محصول با دسته **کانکتیکس** ساخته می‌شوند
-- همگام‌سازی مجدد: پیام ادمین `🔄 همگام پلن کانکتیکس`
+- آدرس API زنده (املای رسمی خود کانکتیکس): `https://seller-api.connectix.vip/externel/v1`
+- ⚠️ مسیر `/external/v1` دیگر ۴۰۴ می‌دهد؛ حتماً `externel` باشد
+- پسورد پنل = **API Token** (Account Settings → API Token)
+- پس از ذخیره، پلن‌های فعال با `GET /clients/get-enabled-plans` به‌عنوان محصول دسته **کانکتیکس** ساخته می‌شوند (`note` = plan UUID)
+- ساخت کاربر: `POST /clients/store`
+- تمدید / افزودن پلن: `POST /clients/add-plan`
+- مشاهده کاربر: `GET /clients` و `GET /clients/show`
+
+دستورهای ادمین:
+
+```text
+🔄 همگام پلن کانکتیکس
+👥 کاربران کانکتیکس
+cxshow USERNAME
+cxadd USERNAME PLAN_ID
+```
+
+اگر پنل از قبل با آدرس قدیمی ذخیره شده:
+
+```sql
+UPDATE marzban_panel
+SET url_panel = 'https://seller-api.connectix.vip/externel/v1'
+WHERE type = 'connectix';
+```
 
 
 

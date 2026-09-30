@@ -1,5 +1,75 @@
 # mirza_vali Pro — Changelog
 
+## v5.0.0 (2026-09-30)
+
+### کانکتیکس — اصلاح API زنده
+- Base URL رسمی: `https://seller-api.connectix.vip/externel/v1` (غلط املایی رسمی `externel` نه `external`)
+- نرمال‌سازی آدرس تا `/external/v1` اشتباهاً به ته `/externel/v1` نچسبد (علت خطای همگام‌سازی Not Found)
+- همگام پلن: `GET /clients/get-enabled-plans`
+- ساخت کاربر: `POST /clients/store`
+- لیست / نمایش کاربر: `GET /clients` و `GET /clients/show`
+- افزودن و تمدید پلن: `POST /clients/add-plan`
+- `DataUser` از show کاربر می‌خواند (به‌جای صفر ثابت)
+- دستور ادمین: `👥 کاربران کانکتیکس`، `cxshow`، `cxadd`
+- پیام افزودن پنل و README با مسیر صحیح به‌روز شد
+
+### نوت و نسخه
+- VERSION و پیام aboutBot: 5.0.0
+
+---
+
+
+## v4.0.9 (2026-08-28)
+
+### رفع ارتباط با سرور لایسنس
+- افزایش timeout و غیرفعال‌سازی سخت‌گیرانه SSL روی کلاینت لایسنس (علت رایج پیام «سرور در دسترس نیست»)
+- لاگ خطای curl برای عیب‌یابی
+
+## v4.0.8 (2026-08-28)
+
+### رفع قطعی ماژول لایسنس
+- `license_client.php` همیشه در Install و Update کپی می‌شود
+- کلید واردشده در نصب از `config.php` به دیتابیس (`PaySetting`) همگام می‌شود
+- اگر کلید فقط در config باشد، منوی ربات آن را می‌بیند
+- آدرس API پیش‌فرض obfuscated؛ نیازی به وارد کردن URL در نصب نیست
+
+## v4.0.7 (2026-08-28)
+
+### لایسنس داخل ربات + پنهان‌سازی API
+- منوی **🔑 لایسنس ربات** در پنل مدیریت (فقط administrator)
+- ثبت / ویرایش کلید لایسنس از داخل ربات (ذخیره در PaySetting + config.php)
+- نمایش وضعیت: دامنه، کلید ماسک‌شده، انقضا، روز باقی‌مانده، فروش فعال/متوقف
+- آدرس API سرور لایسنس به‌صورت obfuscated داخل کلاینت (نه متن ساده در config)
+- `$LICENSE_API_URL` خالی = استفاده از endpoint داخلی رمزشده
+
+## v4.0.6 (2026-08-28)
+
+### رفع ازکارافتادگی ربات (HTTP 500)
+- حذف تعریف تکراری `eylan_delete_user` / `eylan_toggle_user` / `eylan_reset_traffic` در `Eylan.php`
+- توابع کمکی اضافی با `function_exists` محافظت شدند
+- علت: Cannot redeclare function eylan_delete_user()
+
+## v4.0.5 (2026-08-28)
+
+### رفع پایداری
+- اصلاح placeholder تکراری PDO در `KeyboardCategoryGlobal` / `KeyboardPanelsForCategory`
+- مقاوم‌سازی ویرایش محصول وقتی پنل در session نیست
+
+## v4.0.4 (2026-08-28)
+
+### هم‌راستا با کلاسیک v2.0.7
+- دکمه‌های بازگشت: منوی قبل / منوی مدیریت / منوی اصلی کاربر
+- خرید با دسته فعال: دسته → پنل → محصول (`KeyboardCategoryGlobal` / `catbuy_`)
+- step برای منوهای ادمین (فروشگاه، محصولات، دسته، تنظیمات، کانال)
+- ویرایش محصول: `product_edit_flow` و بازگشت یک‌مرحله‌ای
+- پاک‌سازی دامنه/IP واقعی از مستندات؛ فقط مثال (`bot.example.com`، `license.example.com`)
+
+## v4.0.4 (2026-08-27)
+- Fix: license check no longer runs on every webhook (was causing bot timeout / appear offline)
+- License HTTP timeout reduced (3s connect / 6s total)
+- License still enforced only on sell/buy flows; `/license` still works for admin
+
+
 ## v4.0.3 (2026-08-27)
 
 ### لایسنس کلاینت (اتصال به سرور لایسنس)
