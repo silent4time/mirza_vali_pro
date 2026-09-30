@@ -2,7 +2,7 @@
 
 ربات فروش و مدیریت اشتراک VPN برای **تلگرام** و **بله**
 
-**نسخه:** 5.0.2
+**نسخه:** 5.0.4
 
 > **mirza_vali Pro** — مسیر نصب پیش‌فرض: `/home/mirza_vali_pro`
 
@@ -214,6 +214,7 @@ $LICENSE_API_URL = 'https://license.example.com/api/verify.php';
 - پسورد پنل = **API Token** (Account Settings → API Token)
 - پس از ذخیره، پلن‌های فعال با `GET /clients/get-enabled-plans` به‌عنوان محصول دسته **کانکتیکس** ساخته می‌شوند (`note` = plan UUID)
 - نام محصول در ربات = فیلد **Title** پلن کانکتیکس (مثل Economic 30G)
+- پلن‌هایی که در عنوان کلمه **free** دارند تست‌اند؛ وارد فروشگاه و تعرفه نمی‌شوند و به دکمهٔ **اکانت تست** وصل می‌شوند
 - ساخت کاربر: `POST /clients/store`
 - تمدید / افزودن پلن: `POST /clients/add-plan`
 - مشاهده کاربر: `GET /clients` و `GET /clients/show`
