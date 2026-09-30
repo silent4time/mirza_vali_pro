@@ -1,5 +1,23 @@
 # mirza_vali Pro — Changelog
 
+## v5.0.16 (2026-09-30)
+
+- قیمت روی دکمه‌های خرید اشتراک
+
+---
+
+## v5.0.15 (2026-09-30)
+
+- در خرید اشتراک روی پلن‌های default پسوند + Super special اضافه شد
+
+---
+
+## v5.0.14 (2026-09-30)
+
+- تعرفه از Titleهای (4x)… گروه Economic / Super special / Iran Access می‌سازد
+
+---
+
 ## v5.0.13 (2026-09-30)
 
 - تعرفه کانکتیکس گروه‌بندی با GROUP NAME؛ default = Super special
